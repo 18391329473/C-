@@ -1,0 +1,192 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+//
+//#include<iostream>
+//#include<cmath>
+//using namespace std;
+//class Complex
+//{
+//public:
+//	/*
+//	Complex()    //不带参数的构造函数
+//	{
+//		real = 0;
+//		imag = 0;
+//	}
+//
+//	void init(double r,double d)  // 传参
+//	{
+//		real = r;
+//		imag = d;
+//	}
+//	*/
+//	Complex(double r, double d)  // 传参
+//	{
+//		real = r;
+//		imag = d;
+//	}
+//
+//	double abs()
+//	{
+//		double t;
+//		t = real*real + imag*imag;
+//		return sqrt(t);
+//	}
+//
+//private:
+//	double real;             //成员初始化是根据类中声明的顺序来初始化的。
+//	double imag;
+//
+//};
+//int main()
+//{
+//	Complex A(3.0,4.0);
+////	Complex A;
+////	A.init(3.0, 4.0);
+//	
+//	cout <<" 结果是： "<< A.abs()<< endl;
+//	system("pause");
+//	return 0;
+//}
+//*/
+//
+
+
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+/*
+class date
+{
+public:
+	date();
+	date(int y, int m, int d);
+	void print();
+private:
+	int year;
+	int month;
+	int day;
+
+};
+date::date()
+{
+	year = 2019;
+	month = 4;
+	day = 2;
+}
+date::date(int y, int m, int d)
+{
+	year = y;
+	month = m;
+	day = d;
+}
+inline void date::print()
+{
+	cout << year << "-" << month << "-" << day << endl;
+
+}
+int main()
+{
+	date a;                       //调用无参构造函数时对象后面无需括号
+	cout << "11111" << endl;
+	a.print();
+	date b(2019, 4, 1);           //调用有参构造函数时需要在对象后赋值初始化
+	cout << "22222" << endl;
+	b.print();
+	system("pause");
+	return 0;
+}*/
+
+
+
+/*
+class a
+{
+public:
+	a(int m, int n)
+	{
+		X = m;
+		Y = n;
+	}
+	void init(int intx, int inty)
+	{
+		X = intx;
+		Y = inty;
+	}
+	int getx()
+	{
+		return X;
+	}
+	int gety()
+	{
+		return Y;
+	}
+private:
+	int X, Y;
+};
+int main()
+{ 
+	a a1(0,0);                    //给对象初始化，然后再赋值
+	a1.init(3, 4);
+	cout << a1.getx() << "-" << a1.gety() << endl;
+	system("pause");
+	return 0;
+
+}
+*/
+
+/*
+class exam
+{
+public:
+	exam()
+	{
+		x = 50;
+	}
+	exam(int n)
+	{
+		x = n;
+	}
+//	int getx()
+		void getx()
+	{
+		cout << x << endl;
+		//return x;
+	}
+	int gety()
+	{
+		cout << x << endl;
+	}
+private:
+	int x;
+};
+int main()
+{
+	exam a[4] = { 10,12 };
+	exam b[4] = { 4,5,6,7 };
+//	for (int i = 0; i < 4; i++)
+//		cout << a[i].getx() << "  ";
+//	cout << endl;
+//	for (int i = 0; i < 4; i++)
+//		cout << b[i].getx() << "  ";
+
+	exam* p;
+	p = a;
+	p->getx();    //指针调用对象
+	p++;
+	p->getx();
+	p++;
+	p->getx();
+	system("pause");
+	return 0;
+}
+*/
+
+/* 
+
+  定义string类
+    string str1，str2；
+	string str1("china");
+	string str1="ching";
+*/
