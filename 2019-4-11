@@ -1,0 +1,162 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+//#include<iostream>
+//#include<string>
+//using namespace std;
+
+
+/*                    // 字符串的应用
+int main()
+{
+	string s1 = "abc";
+	string s2 = "def";
+	string s3("ghi");
+	string s4, s5;
+
+	cout << "s1+s2=" << s1 + s2 << endl;
+	cout << "s3+s2=" << s3 + s2 << endl;
+	s4 = s3;
+	cout << "s4=" << s4 << endl;
+	if (s1 < s2)
+	{
+		cout << "s1<s2" << endl;
+	}
+	else
+	{
+		cout << "s1>s2";
+
+	}
+	cin >> s5;
+	if (s5 > s2)
+	{
+		cout <<" s5 > s2 "<< endl;
+	}
+	else
+	{
+		cout << "s5<s2" << endl;
+	}
+	system("pause");
+}
+*/
+
+
+/*                     // 拷贝构造函数
+class point {
+public:
+	point(int a, int b)
+	{
+		x = a;
+		y = b;
+
+	}
+	point(const point &p)
+	{
+		x = 2 * p.x;
+		y = 2 * p.y;
+	}
+	void print()
+	{
+		cout << "x=" << x << "y=" << y << endl;
+	}
+private:
+	int x; int y;
+};
+int main()
+{
+	point p1(20, 40);
+	point p2(p1);
+	p1.print();
+	p2.print();
+		system("pause");
+	return 0;
+}
+*/
+
+//   静态成初始化： （必须在类外进行初始化）
+//              数据类型  类名：：静态数据成员名 = 初始值；
+//   调用静态成员函数：
+//                  类名：：静态成员函数名（实参表）
+//                  对象指针->静态~~~
+//                  对象.静态~~~
+
+
+//  声明友元函数： 
+//              friend  void 函数名 （const 类名 &）
+
+
+//   给常数据成员初始化	
+//                private:
+//                 const int year;
+//                 const int month;
+//                 const int day;
+//          	Date::Date(int y, int m, int d) :year(y), month(m), day(d) {}   
+
+
+
+
+
+//    动态内存管理方式
+/*
+      int* p1 =(int *)malloc(sizeof(int));
+	  char* p=（char*)malloc(sizeof(char));
+	  free(p1);
+*/
+
+#include<iostream>
+using namespace std;
+
+//class exam
+//{
+//public:
+//	exam(int n)
+//	{
+//		x = n;
+//	}
+//	int get_x()
+//	{
+//		return x;
+//	}
+//private:
+//	int x;
+//};
+//int main()
+//{
+//	exam ob[4]= { 1,2,3,4 };
+//	for (int i = 0; i < 4; i++)
+//	{
+//		cout << ob[i].get_x() << endl;
+//
+//	}
+//	system("pause");
+//	return 0;
+//}
+
+
+class exe
+{
+public:
+	void set_a(int a)       //定义成员函数 set_a,给数据成员赋值
+	{
+		x = a;
+	}
+	void show_a()           //定义成员函数 show_a,输出数据成员的值
+	{
+		cout << x << endl;
+	}
+private:
+	int x;
+};
+int main()
+{
+	exe ob;                  //定义类exe的对象 ob
+	exe *p;                  //定义指向类exe的对象指针变量 p
+	ob.set_a(1);             //调用对象的成员函数 set_a,，并给数据成员赋值 1
+	ob.show_a();             //调用对象的成员函数 show_a，输出数据成员的值
+	p = &ob;                 //将对象ob的地址给对象指针变量P
+	p->show_a();             //调用P所指向的对象中的成员函数show_a,即ob.show_a（）
+	(*p).show_a();           //调用P所指向的对象中的成员函数show_a,即ob.show_a（）
+
+	system("pause");
+	return 0;
+}
+
