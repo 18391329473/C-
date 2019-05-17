@@ -1,1 +1,266 @@
 
+#define _CRT_SECURE_NO_WARNINGS 1
+/*
+
+// 命名空间：
+
+#include<stdio.h>
+#include<stdlib.h>
+namespace N
+{
+	int a;
+	int b;
+	void fun()
+	{}
+	namespace NN
+	{
+		int a;
+		int b;
+		void fun()
+		{
+			printf("NN::fun()\n");
+		}
+	}
+}
+
+int a;
+int b;
+void fun()
+{
+	printf("::fun()\n");
+}
+
+int main()
+{
+	N::a = 10;
+	N::b = 20;
+	a = 30;
+	N::fun();
+	N::NN::fun();
+	fun();
+	system("pause");
+	return 0;
+
+}
+*/
+
+
+
+
+#include<iostream>        //   std:标准命名空间
+
+using namespace std;
+
+// 输入输出：
+//int main()
+//{
+//  /*int a = 10;
+//	printf("%d\n", a);
+//
+//	std::cout << a;*/
+//	
+//	int a;
+//	double b;
+//	char c;
+//	std::cin >> a >> b >> c;
+//	std::cout << a << b << c;
+//	system("pause");
+//	return 0;
+//} 
+
+////缺省参数：	
+//int fun1(int a, int b)
+//{
+//	return a + b;
+//}
+//int fun2(int a = 100, int b = 200)  //全缺省，每个参数都有默认值； 
+//{
+//	return a + b;
+//}
+//int fun3(int a, int b,int c=50)   //半缺省，默认值必须从左往右连续，不能间断含有默认值
+//{
+//	return a + b+c;
+//}
+//int main()
+//{
+//	cout<<fun1(10, 20)<<endl;
+//	cout<<fun2()<<endl;
+//	cout << fun2(10) << endl; // 只给一个值，则从左往右赋值
+//	cout << fun3(10,20) << endl;
+//	system("pause");
+//	return 0;
+//}
+
+
+//
+////函数重载，函数名相同，参数列表不同（个数，顺序，类型 ）
+//int add(int a, int b)
+//{
+//	return a + b;
+//}
+//int add(double a, double b) //参数列表类型不同
+//{
+//	return a + b;
+//}
+///*
+//double add(int a, int b)  //返回类型不同无法构成重载，
+//{
+//	return a + b;
+//}
+//*/
+//int add(int a)   //参数个数不同
+//{
+//	return a;
+//}
+//int add(double b, int a) //参数顺序不同
+//{
+//	return a + b;
+//}
+//int main()
+//{
+//	cout << add(3.1,1.9) << endl;
+//	system("pause");
+//	return 0;
+//}
+//
+
+
+
+//int main()
+//{
+//	int a = 10;
+//	int b = a;
+//	int& ra = a;
+//	//int& e;  // 出错，引用定义时必须初始化。
+//	cout << ra <<b<< endl;
+//	ra = b; // 将b的值赋给a
+//	return 0;
+//}
+
+//int main()
+//{
+//	const int a = 1;
+//	const int &ra = a;  //常引用
+//	const int &r1 = 10;
+//
+//	float f = 3.4;
+//	float &rf = f;
+//    const	int &rrf = f;
+//}
+
+//
+//void swap(int *pa, int *pb)
+//{
+//	int tmp = *pa;
+//	*pa = *pb;
+//	*pb = tmp;
+//}
+//void swap(int &ra, int &rb)
+//{
+//	int tmp = ra;
+//	ra = rb;
+//	rb = tmp;
+//}
+//int main()
+//{
+//	int a = 3,b = 10;
+//	swap(&a, &b);
+//	swap(a, b);
+//	return 0;
+//}
+
+
+//#include<time.h>
+//void fun(int a)
+//{}
+//void funRef(int &a)
+//{}
+//void testvalueRef()
+//{
+//	int N = 100000;
+//	int a = 1;
+//	size_t begin = clock();
+//	for (int i = 0; i < N; i++)
+//		fun(a);
+//	size_t end = clock();
+//
+//	size_t begin1 = clock();
+//	for (int i = 0; i < N; i++)
+//		funRef(a);
+//	size_t end1 = clock();
+//
+//	cout << "fun(int):" << end-begin<< endl;
+//	cout << "funRef(int):" << end1-begin1<< endl;
+//}
+//int main()
+//{
+//	testvalueRef();
+//	return 0;
+//}
+
+//
+//int main()
+//{
+//	//int a = 10;
+//
+//	//int *pa = &a;    //引用在初始化一个实体后，就不能再引用其它实体，而指针在任何时候可以指向任何一个同类型实体。
+//	//*pa = 20;        //引用再定义时必须初始化，指针无要求；  没有NULL引用，有NULL指针
+//	//                 //在sizeof中含义不同：引用结果为引用类型的大小，但指针始终占4个字节
+//	//int &ra = a;     //引用自加即引用的实体+1，指针自加即指针向后偏移一个类型的大小
+//	//ra = 20;         //有多级指针，但没有多级引用
+//
+//	double d = 2.0;
+//	double& rd = d;
+//	double* pd = &d;
+//
+//	int a = 10;
+//	int & ra = a;
+//	int *pa = &a;
+//
+//	//cout << "sizeof(rd):" << sizeof(rd) << endl;  //  double 类型：8个字节
+//	//cout << "sizeof(pd):" << sizeof(pd) << endl;  //  指针类型：4个字节
+//	//cout << "sizeof(ra):" << sizeof(ra) << endl;  //  int类型：4个字节
+//	//cout << "sizeof(pa):" << sizeof(pa) << endl;  //  指针类型：4个字节
+//
+//	cout << "(++ra) : "<< (++ra) << endl;
+//	cout << "pa : " << pa << endl;
+//	cout << "(++pa) : " << (++pa) << endl;
+//
+//	return 0;
+//}
+
+//int& funRef(int& a)     //   返回引用 函数
+//{
+//	a += 10;
+//	return a;
+//}
+//void fun()
+//{
+//	int a;
+//	int & ra = funRef(a);
+//}
+
+
+int add(int a,int b)
+{
+	return a + b;
+}
+inline int addInline(int a, int b)  // 是一种用空间换时间的做法，省去调用函数额开销
+{
+	return a + b;
+}
+int main()
+{
+	add(2, 3);  // call add(0x1287ff)  调用栈帧
+	addInline(2, 3);
+	return 0;
+}
+
+
+// 宏的优点：
+//        1.增强代码的复用性
+//        2.提高性能
+//   缺点：
+//        1.不方便调试宏
+//        2.导致代码可读性差，可维护性差，容易误用
+//        3.没有类型安全的检查
