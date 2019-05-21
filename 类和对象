@@ -1,0 +1,323 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<iostream>
+using namespace std;
+
+//int main()
+//{
+//	int a = 1;
+//	auto b = "dsa";
+//	auto *pb = "sda";
+//	cout <<typeid(b).name() << endl;
+//
+//	auto e = 10, c = 20;   //可以自动推导出后面定义的类型
+//	auto f = 2.5;         
+//
+//	//auto b[] = { 4,5,6 };    //不能直接用来声明数组
+//	//void TestAuto(auto a)    //auto 不能 作为函数的参数
+//	//{}
+//
+//	return 0;
+//}
+
+//
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6 };
+//	char a[] = "yancgcheng";
+//	int len = sizeof(arr) / sizeof(arr[0]);
+//	for(int i = 0; i < len; i++)
+//	{
+//		cout<<arr[i]<<endl;
+//    }
+//
+//	for (int e : arr)   //基于范围的遍历
+//	{
+//		cout << e << endl;
+//	}
+//
+//	for (const auto& e : arr)
+//	{
+//		cout << e << endl;
+//	}
+//
+//	for (char e : a)
+//	{
+//		cout << e ;
+//	}
+//	return 0;
+//}
+//
+
+//
+//class A     //class 和struct 的区别：struct 默认权限是公有的，class 是默认私有的
+//{
+//public:
+//	void fun(int a,int b)
+//	{
+//		cout << a + b << endl;
+//	}
+//	void fun1();
+//private:
+//	int a;
+//	int b;
+//	char c;
+//};
+//       
+//int main()
+//{
+//	A c;
+//	c.fun(2,5);
+//	return 0;
+//}
+//void A:: fun1()  // 在类外定义函数需要有类域：：
+//{}
+
+
+//class A
+//{};
+//class B
+//{
+//	void fun(int a, int b)
+//	{
+//		int c = a + b;
+//	}
+//	
+//};
+//class C
+//{
+//	void fun(int a, int b)
+//	{
+//		int c = a + b;
+//	}
+//	char c;    //8
+//	double d;  //8
+//	int a;     //8
+//
+//};
+//int main()
+//{
+//	cout << sizeof(A) << endl;  // 1 ----  空类
+//	cout << sizeof(B) << endl; 
+//	cout << sizeof(C) << endl;
+//	return 0;
+//}
+//                1：28
+
+//class Date
+//{
+//public:
+//	// 1.无参构造函数
+//	Date()
+//	{}
+//
+//	// 2.带参构造函数
+//	/*Date(int year, int month, int day)
+//	{
+//		_year = year;
+//		_month = month;
+//		_day = day;
+//	}*/
+//
+//    /* Date(int year=2019, int month=4, int day=21)
+//	{
+//		_year = year;
+//		_month = month;
+//		_day = day;
+//	}*/
+//	~Date()
+//	{
+//		cout << "~Date" << endl;
+//	}
+//
+//	void Display()
+//	{
+//		cout << _year << "-" << _month << "-" << _day << endl;
+//	}
+//
+//private:
+//	int _year;
+//	int _month;
+//	int _day;
+//};
+//void TestDate()
+//{
+//	Date d1; // 调用无参构造函数
+//    // Date d2(2015, 1, 1); // 调用带参的构造函数
+//    d1.Display();
+//						 // 注意：如果通过无参构造函数创建对象时，对象后面不用跟括号，否则就成了函数声明
+//						 // 以下代码的函数：声明了d3函数，该函数无参，返回一个日期类型的对象
+//	//Date d3(2011,1,1);
+//	//d3.Display();
+//}
+//
+//int main()
+//{
+//	/*Date d1, d2;
+//	d1.SetDate(2018, 5, 1);
+//	d1.Display();
+//*/
+//	//Date d2(2019,5,21);
+//	//Date d(2019);
+//	////d2.SetDate(2018, 7, 1);
+//	//d2.Display();
+//	//d.Display();
+//	TestDate();
+//	return 0;
+//}
+//
+
+
+//class Date
+//{
+//public:
+//	 Date(int year=2019, int month=4, int day=21)
+//		{
+//			_year = year;
+//			_month = month;
+//			_day = day;
+//		}
+//	//Date(const Date& d)  //  拷贝构造必须传引用。  +const 保护内容
+//	//{
+//	//	_year = d._year;
+//	//	_month = d._month;
+//	//	_day = d._day;
+//	//}
+//
+//	/*void setDate(int year, int month, int day)
+//	{
+//		this->_year = year;
+//		this->_month = month;
+//		this->_day = day;
+//	}*/
+//	void Display()
+//	{
+//		cout << _year << "-" << _month << "-" << _day << endl;
+//	}
+//private:
+//	int _year;
+//	int _month;
+//	int _day;
+//};
+//
+//
+//int main()
+//{
+//	Date d(2019,5,21);
+//	Date d1(d);
+//	Date d2;
+//	d.Display();
+//	d1.Display();
+//	memcpy(&d2, &d1, sizeof(d2));
+//	d2.Display();
+//	return 0;
+//}
+
+
+//                 字符串拷贝
+//class String
+//{
+//public:
+//	String(char* str )
+//	{
+//		_str = (char*)malloc(strlen(str) + 1);
+//		strcpy(_str, str);
+//	}
+//	~String()
+//	{
+//		if (_str)
+//		{
+//			free(_str);
+//			_str = nullptr;
+//		}
+//	}
+//	void Display()
+//	{
+//		cout << _str << endl;
+//	
+//	}
+//private:
+//	char* _str;
+//};
+//
+//int main()
+//{
+//	String s1("Yangcxzczczczc");
+//	String s2(s1);
+//	s1.Display();
+//	s2.Display();
+//	system("pause");
+//	return 0;
+//}
+
+
+
+
+class Date
+	
+{
+public:
+	void SetDate(int year, int month, int day)
+	{
+		_year = year;
+		_month = month;
+		_day = day;
+	}
+
+	Date(int year = 2019, int month = 4, int day = 21)
+				{
+					_year = year;
+					_month = month;
+					_day = day;
+				}
+	
+	void Display()
+	{
+		cout << _year << "-" << _month << "-" << _day << endl;
+	}
+	bool operator==(const Date& d)  //类里面含有一个this指针作为成员参数
+		{
+			if (this->_year == d._year&&_month == d._month&&_day == d._day)
+				return true;
+			return false;
+		}
+	int operator-(const Date& d)
+	{
+		return this->_day - d._day;
+	}
+//private:
+	int _year;
+	int _month;
+	int _day;
+};
+//bool operator==(const Date& d3, const Date& d2)
+//{
+//	if (d3._year == d2._year&&d3._month == d2._month&&d3._day == d2._day)
+//		return true;
+//	return false;
+//}
+//int operator+(Date& d, int b)  //至少有一个是类 类型 ，不能全部是内置类型
+//{
+//	return d._year-b;
+//
+//}
+int main()
+{
+	int a = 10;
+	int b = 20;
+	Date d1;
+	Date d2;
+	if (a == b)
+	{
+
+	}
+	d1 - d2;
+	if (d1 == d2)
+	{
+		
+		d1.Display();
+		d2.Display();
+		cout << "ad" << endl;
+	}
+
+}
