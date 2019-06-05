@@ -1,0 +1,21 @@
+class Solution {           //输出前K个的高频单词
+public:
+	vector<string>topKFrequent(vector < string>& words, int k){
+		map<string, int> countMap;
+		vector<string> v;
+		for (const auto& e : words)
+			++countMap[e];
+		multimap<int, string> retMap;
+		for (const auto& e : countMap)
+		{
+			retMap.insert(make_pair(e.second, e.first));;
+		}
+		for (const auto& e : retMap)
+		{
+			if (k-- > 0)
+			{
+				v.push_back(e.second);
+			}
+		}
+}
+};
