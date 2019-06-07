@@ -1,0 +1,74 @@
+
+enum Color
+{
+	BLACk,
+	RED
+
+};
+template<class K,class V>
+
+struct RBTNode
+{
+	typedef RBTNode<k, V> Node;
+	Node* _pLeft = nullptr;
+	Node* _pRight = nullptr;
+	Node* _pParent = nullptr ;
+	pair<K, V> _kv;
+	Color _color=RED;
+
+};
+template<class K, class V>
+class RBTree
+{
+public:
+	typedef RBTNode<K, V> Node;
+	typedef Node* pNode;
+	RBTree()
+	{
+		_header = new Node;
+		_header->_pParent = nullptr;
+		_header->_pLeft = _header;
+		_header->_pRight = _header;
+	}
+	bool Insert(const pair<K,V>& kv)
+	{
+		if (_header->_pParent == nullptr)
+		{
+			pNode root = new Node;
+			root->_kv = kv;
+			root->_color = BLACk;  //根是黑色的
+
+			root->_pParent = _header;
+			_header->_pParent = root;
+
+			_header->_pLeft = root;
+			_header->_pRight = root;
+			return true;
+		}
+		pNode cur = _header->_pParent;
+		pNode parent = nullptr;
+
+		while (cur)
+		{
+			if (kv.first > cur->_kv.first)
+			{
+				parent = cur;
+				cur = cur->_pRight;
+
+			}
+			else if (kv.first < cur->_kv.first)
+			{
+				parent = cur;
+				cur = cur->_pLeft;
+			}
+			else
+				return false;//相等，插入失败
+		}
+		pNode newNode = new Node;
+
+	}
+
+private:
+	pNode _header;
+};
+*/
