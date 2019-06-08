@@ -1,0 +1,42 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int count(int n)
+{
+	int s = 0;
+	int m = 0;
+	for (int i = 1; i <= n; i++)
+	{
+		s = 0;
+		for (int j = 1; j < i; j++)
+		{
+			
+			if (i%j == 0)
+			{
+				s += j;
+			}
+			
+		}
+
+		if (s == i)
+		{
+		m++;
+		}
+	}
+	
+	return m;
+}
+int main()
+{
+	int n;
+	int m = 0;
+	cout << "please input number range:";
+	cin >> n;
+	int ret = count(n);
+	cout << "该范围内含有"<<ret << "个完全数"<<endl;
+	system("pause");
+	return 0;
+}
