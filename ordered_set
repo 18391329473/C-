@@ -1,0 +1,67 @@
+
+class Solution                //求两个数组的交集
+{
+public:
+	vector<int> intersection(vector<int>& nums1,vector<int>& nums2)
+	{
+		unordered_set<int> set1;
+		unordered_set<int> set2;
+		for (const auto& e : nums1)
+		{
+			set1.insert(e);
+		}
+		for (const auto& e : nums2)
+		{
+			set2.insert(e);
+		}
+		vector<int> v;
+		for (const auto& e : set1)
+		{
+			if (set2.find(e) != set2.end())
+				v.push_back(e);
+		}
+		return v;
+			 
+	}
+};
+
+
+
+class Solution {    //有重复的返回true
+public:
+	bool containsDuplicate(vector<int>& nums)
+	{
+		unordered_set<int> s1;
+		for (const auto& e : nums)
+		{
+			if (!(s1.insert(e)).second)
+				return true;
+		}
+		return false;
+	}
+};
+
+
+class Solution {   // 两 句话中的不常见单词
+public:
+	vector<string> uncommonFromSentences(string A, string)
+
+		A += ' ';
+	A += B;
+	unordered_map<string, int> map1;
+	size_t start = 0;
+	size_t pos = 0;
+	do {
+		pos = A.find(' ', start);
+		++map1[A.substr(start, pos - start)];
+		start = pos + 1;
+	} while (pos != string::npos);
+
+	for (const auto& e : map1)
+	{
+		if (e.second == 1)
+			v.push_back(e.first);
+
+	}
+	return v;
+}
