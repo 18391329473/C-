@@ -1,0 +1,17 @@
+void func(char arr[100])
+{
+    char arra[10];
+    char str[]= "hello";
+    int a = 10;
+    int* p = &a;
+    std::cout << sizeof(arr) << std::endl
+     << sizeof(arra) << std::endl 
+     << sizeof(str) << std::endl 
+     << sizeof(a) << std::endl
+      << sizeof(p) << std::endl;
+}
+int main()
+{
+    char arr[100];
+    func(arr);
+}
